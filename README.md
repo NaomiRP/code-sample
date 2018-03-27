@@ -1,6 +1,17 @@
 # Charter Enterprise MOTD Sample Project
 A small project to help assess candidate experience with webservices and our technology stack.
 
+## Explanation
+I started by fixing the provided test.
+
+The way the daily message was described suggested that it should not be hard-coded into the code, so I extracted the
+message into a Spring application properties file.  The requirements did not specify that the message should be updated
+while the application is running, so a property seemed like a reasonably simple solution.  Following a change to the
+text and restart of the app, iterative requests will consistently return the new message.
+
+Finally, a requirement to allow updates to the content of the message makes a test checking the exact content very
+brittle.  The test was updated to instead verify that the response looks like a simple message (contentType=text/plain).
+
 ## Instructions
 We have provided a webservice that provides a "message of the day", similar to what you might see logging into a 
 Unix system. Unfortuantely, at Charter things don't always go as planned and we need to change the message.  We need you
